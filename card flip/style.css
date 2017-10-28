@@ -1,0 +1,79 @@
+body {
+  background-color:#F4F4F4;
+}
+
+@-webkit-keyframes flip {
+    0% { transform: rotateY(0deg) }
+    33% { transform: rotateY(190deg) }
+    66% { transform: rotateY(175deg) }
+    100% { transform: rotateY(179deg) }
+}
+@keyframes flip {
+  0% { transform: rotateY(0deg) }
+  33% { transform: rotateY(190deg) }
+  66% { transform: rotateY(175deg) }
+  100% { transform: rotateY(179deg) }
+}
+
+.card-container {
+  /* Size */
+  width:100%;
+
+  /* Position */
+  position: absolute;
+  top:50%;
+  transform: translateY(-50%);
+  perspective: 1000px;
+
+  /* Color */
+  /* Effects */
+}
+
+.card {
+  /* Size */
+  /* Position */
+  margin: 0 auto;
+  position: relative;
+
+  /* Color */
+  background-color: white;
+
+  /* Effects */
+  transform-style: preserve-3d;
+  box-shadow: 0px 0px 20px #888888;
+  animation-name: flip;
+  animation-duration: 0.75s;
+  animation-iteration-count: 1;
+  animation-direction: normal;
+  animation-fill-mode: forwards;
+  animation-delay: 0.25s;
+  animation-timing-function: ease;
+}
+
+.card, .front, .back {
+  width:500px;
+  height:300px;
+  border-radius: 5px;
+}
+
+.front, .back {
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  backface-visibility: hidden;
+}
+
+.card .front{
+  background-color: white;
+
+  z-index: 2;
+	/* for firefox 31 */
+	transform: rotateY(0deg);
+}
+
+.card .back{
+  background-color: black;
+
+  transform: rotateY(180deg);
+}
